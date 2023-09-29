@@ -36,9 +36,8 @@ app.get("/FrontLogin",function(req,res){
 
 app.post("/",function(req,res){
     var name=req.body.uname
-    var password=req.psw
-    name.save()
-    password.save()
+    var password=req.body.psw
+    data.save()
     const data=new usermodel({name:name,password:password})
     res.redirect("/")
 })
