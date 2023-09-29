@@ -45,7 +45,7 @@ app.post("/",function(req,res){
     var password=req.psw
     name.save()
     password.save()
-    const userdata=new usermodel({name:name,password:password})
+    const data=new usermodel({name:name,password:password})
     res.redirect("/")
 })
 
