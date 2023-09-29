@@ -21,25 +21,25 @@ const userschema=mongoose.Schema({
 
 const usermodel=mongoose.model("userdata",userschema)
 
-app.get("/index",function(req,res){
-
-        res.render('index')
-});
-
-
-app.get("/FrontLogin",function(req,res){
-
-        res.render('FrontLogin')
-
+app.get("/",function(req,res){
+    usermodel.find().then((name,password) => {
+        res.render('index', {name:name,password:password})
+        console.log(name,password)
+}).catch((err) =>{
+        console.log(err)
     });
+})
 
+app.get("/",function(req,res){
+        res.render('FrontLogin')
+    });
 
 app.post("/",function(req,res){
     var name=req.body.uname
     var password=req.body.psw
     data.save()
     const data=new usermodel({name:name,password:password})
-    res.redirect("/")
+    // res.redirect("/")
 })
 
 app.listen(process.env.PORT ||3000,function(){
