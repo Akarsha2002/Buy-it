@@ -23,14 +23,8 @@ const usermodel=mongoose.model("userdata",userschema)
 
 app.get("/index",function(req,res){
 
-    usermodel.find().then((name,password) => {
-        res.render('index', {name:name,password:password})
-
-    }).catch((err) =>{
-
-        console.log(err)
-    });    
-})
+        res.render('index')
+});
 
 
 app.get("/FrontLogin",function(req,res){
