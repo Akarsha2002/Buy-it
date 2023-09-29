@@ -39,7 +39,7 @@ app.post("/",function(req,res){
     var password=req.body.psw
     data.save()
     const data=new usermodel({name:name,password:password})
-    // res.redirect("/")
+    res.redirect("/")
 })
 
 app.listen(process.env.PORT ||3000,function(){
